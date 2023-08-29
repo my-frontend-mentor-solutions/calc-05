@@ -19,7 +19,7 @@ export default function Header() {
 
     return (
         <div className='flex justify-between mb-3'>
-            <p>Calc</p>
+            <p className='font-bold'>Calc</p>
             <div className='flex items-center'>
                 <i className="fa-solid fa-sun text-[20px] text-[#f1bf40]"></i>
                 <label className="switch">
