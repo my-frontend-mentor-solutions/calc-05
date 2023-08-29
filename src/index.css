@@ -1,3 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+:root {
+    /*--------------------------- Light Mode ---------------------------------  */
+
+    /* backgrounds */
+    --light-gray-main-back: #dbdbdb;
+    --grayish-red-keypad-back: #d1cccc;
+    --very-light-gray-screen-back: #f8f8f8;
+
+    /* keys */
+    --dark-cyan-key-back: #377f86;
+    --dark-cyan-key-hover: #439aa1;
+    --vary-dark-cyan-key-shadow: #1b5f65;
+
+    --orange-key-back: #ca5502;
+    --orange-key-hover: #ec6505;
+    --dark-orange-key-shadow: #893901;
+
+    --grayish-yellow-key-back: #e5e4e1;
+    --grayish-yellow-key-hover: #fffbf3;
+    --grayish-yellow-key-shadow: #a69d91;
+
+    /* texts */
+    --dark-grayish-yellow: #35352c;
+    --white: #ffffff;
+
+
+    /* ------------------------------- Dark Mode ------------------------------- */
+
+    /* backgrounds */
+    --dark-blue-main-back: #3a4764;
+    --dark-blue-keypad-back: #232c43;
+    --dark-blue-screen-back: #182034;
+
+    /* keys */
+    --dark-blue-key-back: #637097;
+    --dark-blue-key-hover: #7584b3;
+    --dark-blue-key-shadow: #404e72;
+
+    --red-key-back: #d03f2f;
+    --red-key-hover: #e74836;
+    --dark-red-key-shadow: #93261a;
+
+    --grayish-orange-key-back: #eae3dc;
+    --grayish-orange-key-hover: #fcf3eb;
+    --grayish-orange-key-shadow: #b4a597;
+
+    /* texts */
+    --dark-grayish-blue: #444b5a;
+
+}
+
+/* theme switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+    margin: 0 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .2s;
+    transition: .2s;
+    border-radius: 34px;
+
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 5px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+    border-radius: 50%;
+
+}
+
+.switch-input:checked+.slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
