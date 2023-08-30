@@ -32,7 +32,7 @@ module.exports = {
                 'keypad-back-dark': '#232c43',
 
                 /* keys */
-                'imp-back-dark': '#637097',
+                'imp-back-dark': '#495783',
                 'imp-hover-dark': '#7584b3',
 
                 'key-back-dark': '#eae3dc',
@@ -51,7 +51,7 @@ module.exports = {
                 'blue-light': '0px 4px 0 #1b5f65',
 
                 'grey-dark': '0px 4px 0 #b4a597',
-                'blue-dark': '0px 4px 0 #404e72',
+                'blue-dark': '0px 4px 0 #333e5b',
             }
         },
     },

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,500;8..144,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto Flex', sans-serif;
     font-weight: 500;
     font-size: 32px;
     -webkit-tap-highlight-color: transparent;
@@ -27,10 +27,6 @@
     --dark-cyan-key-back: #377f86;
     --dark-cyan-key-hover: #439aa1;
     --vary-dark-cyan-key-shadow: #1b5f65;
-
-    --orange-key-back: #ca5502;
-    --orange-key-hover: #ec6505;
-    --dark-orange-key-shadow: #893901;
 
     --grayish-yellow-key-back: #e5e4e1;
     --grayish-yellow-key-hover: #fffbf3;
@@ -52,10 +48,6 @@
     --dark-blue-key-back: #637097;
     --dark-blue-key-hover: #7584b3;
     --dark-blue-key-shadow: #404e72;
-
-    --red-key-back: #d03f2f;
-    --red-key-hover: #e74836;
-    --dark-red-key-shadow: #93261a;
 
     --grayish-orange-key-back: #eae3dc;
     --grayish-orange-key-hover: #fcf3eb;
