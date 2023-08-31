@@ -44,15 +44,15 @@ export default function Header() {
     return (
         <div className='flex justify-between mb-3'>
             <p className='font-bold'>Calc</p>
-            <div className='flex items-center bg-[#0000001f] px-2 rounded-md'>
+            <div className='flex items-center bg-[#00000015] px-2 rounded-md'>
                 <i
-                    className={` ${theme === THEME_SYSTEM ? "text-white" : "text-black"} cursor-pointer fa-solid fa-laptop text-[22px] mr-1`}
+                    className={` ${theme === THEME_SYSTEM ? "text-white" : "text-[#252525]"} cursor-pointer fa-solid fa-laptop text-[22px] mr-1`}
                     onClick={() => onThemeChange(THEME_SYSTEM)}></i>
                 <i
-                    className={` ${theme === THEME_LIGHT ? "text-[#e9b93e]" : "text-black"} cursor-pointer fa-solid fa-sun text-[22px] mx-1`}
+                    className={` ${theme === THEME_LIGHT ? "text-[#e9b93e]" : "text-[#252525]"} cursor-pointer fa-solid fa-sun text-[22px] mx-1`}
                     onClick={() => onThemeChange(THEME_LIGHT)}></i>
                 <i
-                    className={` ${theme === THEME_DARK ? "text-[#5d82dd]" : "text-black"} cursor-pointer fa-solid fa-moon text-[22px]  ml-1`}
+                    className={` ${theme === THEME_DARK ? "text-[#5d82dd]" : "text-[#252525]"} cursor-pointer fa-solid fa-moon text-[22px]  ml-1`}
                     onClick={() => onThemeChange(THEME_DARK)}></i>
             </div>
         </div>
