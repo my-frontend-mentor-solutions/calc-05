@@ -1,76 +1,59 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-// const THEME_SYSTEM = -1;
-// const THEME_LIGHT = 0;
-// const THEME_DARK = 1;
+const THEME_SYSTEM = "system";
+const THEME_LIGHT = "light";
+const THEME_DARK = "dark";
 
 export default function Header() {
 
-    // const [theme, setTheme] = useState();
+    const [theme, setTheme] = useState(localStorage.getItem("theme") ?? THEME_SYSTEM);
 
-    let isSystemDark = window.matchMedia("(prefers-color-scheme: dark)");
-    let abc = isSystemDark.matches;
-    const initialTheme = abc ? 'dark' : 'light';
-    const [theme, setTheme] = useState(initialTheme);
-
-    isSystemDark.addEventListener('change',() => {
-        const newIsSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (newIsSystemDark !== isSystemDark.matches) abc = newIsSystemDark;
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", _ => {
+        if (theme === THEME_SYSTEM) {
+            setThemeClass(window.matchMedia("(prefers-color-scheme: dark)").matches);
+        }
     });
 
-    const finalTheme = isSystemDark.matches && localStorage.getItem('darkMode');
-
-    console.log(finalTheme);
-
     useEffect(() => {
-        setTheme(finalTheme ? 'dark' : 'light');
-    }, []);
-
-    useEffect(() => {
-        isSystemDark.matches ? setTheme('dark') : setTheme('light');
-    }, [isSystemDark.matches]);
-
-    useEffect(() => {
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('darkMode', true);
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('darkMode', false);
+        switch (theme) {
+            case THEME_SYSTEM:
+                let isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                setThemeClass(isDark);
+                break;
+            case THEME_LIGHT:
+                setThemeClass(false);
+                break;
+            case THEME_DARK:
+                setThemeClass(true);
+                break;
         }
     }, [theme]);
 
+    const setThemeClass = (dark) => {
+        dark ?
+            document.documentElement.classList.add('dark') :
+            document.documentElement.classList.remove('dark');
+    }
 
-    const themeToggle = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light')
+    const onThemeChange = (theme) => {
+        setTheme(theme);
+        localStorage.setItem("theme", theme);
     }
 
     return (
         <div className='flex justify-between mb-3'>
             <p className='font-bold'>Calc</p>
-            <div className='flex items-center'>
-                <i className="fa-solid fa-sun text-[20px] text-[#f1bf40]"></i>
-                <label className="switch">
-                    <input
-                        type="checkbox"
-                        className='switch-input'
-                        checked={theme === 'dark'}
-                        onChange={themeToggle}
-                    />
-                    <span className="slider bg-[#b8b8b8] dark:bg-keypad-back-dark"></span>
-                </label>
-                <i className="fa-solid fa-sun text-[20px] text-[#f1bf40]"></i>
-                <label className="switch">
-                    <input
-                        type="checkbox"
-                        className='switch-input'
-                        checked={theme === 'dark'}
-                        onChange={themeToggle}
-                    />
-                    <span className="slider bg-[#b8b8b8] dark:bg-keypad-back-dark"></span>
-                </label>
-                <i className="fa-solid fa-moon text-[20px] text-[#4969ba]"></i>
+            <div className='flex items-center bg-[#0000001f] px-2 rounded-md'>
+                <i
+                    className={` ${theme === THEME_SYSTEM ? "text-white" : "text-black"} cursor-pointer fa-solid fa-laptop text-[22px] mr-1`}
+                    onClick={() => onThemeChange(THEME_SYSTEM)}></i>
+                <i
+                    className={` ${theme === THEME_LIGHT ? "text-[#e9b93e]" : "text-black"} cursor-pointer fa-solid fa-sun text-[22px] mx-1`}
+                    onClick={() => onThemeChange(THEME_LIGHT)}></i>
+                <i
+                    className={` ${theme === THEME_DARK ? "text-[#5d82dd]" : "text-black"} cursor-pointer fa-solid fa-moon text-[22px]  ml-1`}
+                    onClick={() => onThemeChange(THEME_DARK)}></i>
             </div>
         </div>
     )
